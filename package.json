@@ -60,9 +60,11 @@
     "webpack-dev-server": "^2.5.1"
   },
   "dependencies": {
+    "c.react.mobi": "^1.0.0",
     "htmlparser2": "^3.9.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-lazyload": "^2.2.7",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",

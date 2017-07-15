@@ -27,6 +27,7 @@ function* getDetail({ payload }) {
   console.log('payload');
   console.log(payload);
   try {
+    yield put({ type: 'reader/save', payload: { detail: [] } });
     const data = yield call(readerServices.getDetail, payload);
     yield put({ type: 'reader/save', payload: { detail: data } });
     console.log(data);

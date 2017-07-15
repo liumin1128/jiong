@@ -15,7 +15,7 @@ export const html2json = (data) => {
         }
         if (name === 'a' && attribs.href) {
           if (ids[ids.length - 1] !== attribs.href) {
-            console.log(attribs);
+            // console.log(attribs);
             ids.push(attribs.href);
           }
         }

@@ -3,10 +3,13 @@ import {
   BrowserRouter as Router,
   Route,   // 这是基本的路由块
 } from 'react-router-dom';
+import test from 'c.react.mobi';
 import { Provider } from 'react-redux';
 import Index from './routes/Index';
 import Detail from './routes/Detail';
 import store from './store';
+
+console.log(test);
 
 const RouterConfig = () => (
   <Provider store={store}>
