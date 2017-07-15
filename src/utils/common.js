@@ -3,6 +3,7 @@ import htmlparser from 'htmlparser2';
 export const html2json = (data) => {
   return new Promise((resolve, reject) => {
     const temp = [];
+    const heights = [];
     const test = [];
     const ids = [];
     let tags = '';
@@ -12,6 +13,7 @@ export const html2json = (data) => {
         // console.log(name, attribs);
         if (name === 'img' && attribs.src) {
           temp.push(attribs.src);
+          heights.push(attribs.height);
         }
         if (name === 'a' && attribs.href) {
           if (ids[ids.length - 1] !== attribs.href) {
@@ -52,6 +54,7 @@ export const html2json = (data) => {
           return {
             img: i,
             text: test[index],
+            height: heights[index],
             id: ids[index].substring(29, 35),
           };
         }));

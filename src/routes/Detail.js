@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import LazyLoad from 'react-lazyload';
 import { parseQueryString } from '../utils/common.js';
-import './style.css';
+import styles from './Detail.less';
 
 class C extends Component {
   componentWillMount() {
@@ -12,12 +13,18 @@ class C extends Component {
   }
   render() {
     const { detail = {} } = this.props;
-    return (<div>
+    return (<div className={styles.box}>
       <h1>{detail.gallery_title}</h1>
       {
-        detail.picInfo && detail.picInfo.map(({ url, add_intro: info }) => (<div>
-          <img src={url} alt="" />
-          <h3>{info}</h3>
+        detail.picInfo && detail.picInfo.map(({
+          url,
+          add_intro: info,
+          file_height: height,
+        }) => (<div className={styles.item}>
+          <LazyLoad height={200} offset={300}>
+            <img src={url} alt="" />
+          </LazyLoad>
+          <p>{height}{info}</p>
         </div>))
       }
     </div>);
